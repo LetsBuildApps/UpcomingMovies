@@ -14,6 +14,7 @@
 		A68B5C3B26B7B06C00154F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A68B5C3A26B7B06C00154F80 /* Assets.xcassets */; };
 		A68B5C3E26B7B06C00154F80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68B5C3C26B7B06C00154F80 /* LaunchScreen.storyboard */; };
 		A68B5C4C26B7B36A00154F80 /* UIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C4B26B7B36A00154F80 /* UIVIewController.swift */; };
+		A68B5C5826B7BD6B00154F80 /* DataFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C5726B7BD6B00154F80 /* DataFetcherTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		A68B5C4926B7B36A00154F80 /* UpcomingMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UpcomingMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68B5C4B26B7B36A00154F80 /* UIVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewController.swift; sourceTree = "<group>"; };
 		A68B5C4D26B7B36A00154F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A68B5C5726B7BD6B00154F80 /* DataFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		A68B5C5526B7BD1200154F80 /* DataFetcher */ = {
 			isa = PBXGroup;
 			children = (
+				A68B5C5726B7BD6B00154F80 /* DataFetcherTests.swift */,
 			);
 			path = DataFetcher;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A68B5C4C26B7B36A00154F80 /* UIVIewController.swift in Sources */,
+				A68B5C5826B7BD6B00154F80 /* DataFetcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
