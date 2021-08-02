@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+     //   self.show(MovieController(), sender: nil)
         // Do any additional setup after loading the view.
     }
 

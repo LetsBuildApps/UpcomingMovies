@@ -29,6 +29,11 @@ class UpcomingMoviesTests: XCTestCase {
         controller.viewDidLoad()
         XCTAssertTrue(controller.tableView.dataSource != nil, "forget to set tableview for controller")
     }
+    
+    func test_tableView_has_RegisteredCell() {
+        controller.viewDidLoad()
+        XCTAssertTrue(controller.tableView.dequeueReusableCell(withIdentifier: "cell") != nil, "tableview has no cell register with identifer")
+    }
 }
 
 class MovieController: UIViewController {
@@ -45,6 +50,13 @@ class MovieController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    
+    
+    private func loadMovies(using url: URL) {
+        
     }
 }
 
@@ -61,3 +73,4 @@ extension MovieController: UITableViewDataSource {
     }
     
 }
+
