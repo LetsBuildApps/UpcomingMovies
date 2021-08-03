@@ -15,6 +15,7 @@
 		A68B5C3E26B7B06C00154F80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68B5C3C26B7B06C00154F80 /* LaunchScreen.storyboard */; };
 		A68B5C4C26B7B36A00154F80 /* UIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C4B26B7B36A00154F80 /* UIVIewController.swift */; };
 		A68B5C5826B7BD6B00154F80 /* DataFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C5726B7BD6B00154F80 /* DataFetcherTests.swift */; };
+		A68B5C5A26B7CC2C00154F80 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C5926B7CC2C00154F80 /* DataFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		A68B5C4B26B7B36A00154F80 /* UIVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewController.swift; sourceTree = "<group>"; };
 		A68B5C4D26B7B36A00154F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A68B5C5726B7BD6B00154F80 /* DataFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherTests.swift; sourceTree = "<group>"; };
+		A68B5C5926B7CC2C00154F80 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +83,11 @@
 		A68B5C3026B7B06B00154F80 /* UpcomingMovies */ = {
 			isa = PBXGroup;
 			children = (
+				A68EAF5B26B8DE3300B4A6A2 /* Decoder */,
+				A68EAF5A26B8DE0B00B4A6A2 /* Root */,
+				A68EAF5926B8DDF600B4A6A2 /* System */,
 				A68B5C5426B7BD0600154F80 /* DataFetcher */,
-				A68B5C3126B7B06B00154F80 /* AppDelegate.swift */,
-				A68B5C3326B7B06B00154F80 /* SceneDelegate.swift */,
-				A68B5C3526B7B06B00154F80 /* ViewController.swift */,
-				A68B5C3726B7B06B00154F80 /* Main.storyboard */,
 				A68B5C3A26B7B06C00154F80 /* Assets.xcassets */,
-				A68B5C3C26B7B06C00154F80 /* LaunchScreen.storyboard */,
 				A68B5C3F26B7B06C00154F80 /* Info.plist */,
 			);
 			path = UpcomingMovies;
@@ -106,6 +106,7 @@
 		A68B5C5426B7BD0600154F80 /* DataFetcher */ = {
 			isa = PBXGroup;
 			children = (
+				A68B5C5926B7CC2C00154F80 /* DataFetcher.swift */,
 			);
 			path = DataFetcher;
 			sourceTree = "<group>";
@@ -124,6 +125,32 @@
 				A68B5C4B26B7B36A00154F80 /* UIVIewController.swift */,
 			);
 			path = MovieController;
+			sourceTree = "<group>";
+		};
+		A68EAF5926B8DDF600B4A6A2 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				A68B5C3126B7B06B00154F80 /* AppDelegate.swift */,
+				A68B5C3326B7B06B00154F80 /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		A68EAF5A26B8DE0B00B4A6A2 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				A68B5C3C26B7B06C00154F80 /* LaunchScreen.storyboard */,
+				A68B5C3726B7B06B00154F80 /* Main.storyboard */,
+				A68B5C3526B7B06B00154F80 /* ViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		A68EAF5B26B8DE3300B4A6A2 /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Decoder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A68B5C3626B7B06B00154F80 /* ViewController.swift in Sources */,
+				A68B5C5A26B7CC2C00154F80 /* DataFetcher.swift in Sources */,
 				A68B5C3226B7B06B00154F80 /* AppDelegate.swift in Sources */,
 				A68B5C3426B7B06B00154F80 /* SceneDelegate.swift in Sources */,
 			);
