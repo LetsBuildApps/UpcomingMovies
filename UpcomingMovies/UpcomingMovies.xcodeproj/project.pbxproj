@@ -16,6 +16,12 @@
 		A68B5C4C26B7B36A00154F80 /* UIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C4B26B7B36A00154F80 /* UIVIewController.swift */; };
 		A68B5C5826B7BD6B00154F80 /* DataFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C5726B7BD6B00154F80 /* DataFetcherTests.swift */; };
 		A68B5C5A26B7CC2C00154F80 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C5926B7CC2C00154F80 /* DataFetcher.swift */; };
+		A68EAF5F26B8DE8600B4A6A2 /* RemoeteErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68EAF5E26B8DE8600B4A6A2 /* RemoeteErrors.swift */; };
+		A68EAF6126B8DEAB00B4A6A2 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68EAF6026B8DEAB00B4A6A2 /* DataLoader.swift */; };
+		A68EAF6626B8E15700B4A6A2 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68EAF6526B8E15700B4A6A2 /* Decoder.swift */; };
+		A68EAF6926B8E20D00B4A6A2 /* JsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68EAF6826B8E20D00B4A6A2 /* JsonDecoder.swift */; };
+		A68EAF6B26B8E2CA00B4A6A2 /* DecodingErrorr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68EAF6A26B8E2CA00B4A6A2 /* DecodingErrorr.swift */; };
+		A68EAF6D26B8E47100B4A6A2 /* DecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68EAF6C26B8E47100B4A6A2 /* DecoderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,12 @@
 		A68B5C4D26B7B36A00154F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A68B5C5726B7BD6B00154F80 /* DataFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherTests.swift; sourceTree = "<group>"; };
 		A68B5C5926B7CC2C00154F80 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		A68EAF5E26B8DE8600B4A6A2 /* RemoeteErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoeteErrors.swift; sourceTree = "<group>"; };
+		A68EAF6026B8DEAB00B4A6A2 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		A68EAF6526B8E15700B4A6A2 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		A68EAF6826B8E20D00B4A6A2 /* JsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoder.swift; sourceTree = "<group>"; };
+		A68EAF6A26B8E2CA00B4A6A2 /* DecodingErrorr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingErrorr.swift; sourceTree = "<group>"; };
+		A68EAF6C26B8E47100B4A6A2 /* DecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +108,7 @@
 		A68B5C4A26B7B36A00154F80 /* UpcomingMoviesTests */ = {
 			isa = PBXGroup;
 			children = (
+				A68EAF6726B8E16200B4A6A2 /* Decoder */,
 				A68B5C5626B7BD1B00154F80 /* MovieController */,
 				A68B5C5526B7BD1200154F80 /* DataFetcher */,
 				A68B5C4D26B7B36A00154F80 /* Info.plist */,
@@ -106,6 +119,8 @@
 		A68B5C5426B7BD0600154F80 /* DataFetcher */ = {
 			isa = PBXGroup;
 			children = (
+				A68EAF5D26B8DE7000B4A6A2 /* Enum */,
+				A68EAF5C26B8DE6900B4A6A2 /* Protcol */,
 				A68B5C5926B7CC2C00154F80 /* DataFetcher.swift */,
 			);
 			path = DataFetcher;
@@ -149,6 +164,49 @@
 		A68EAF5B26B8DE3300B4A6A2 /* Decoder */ = {
 			isa = PBXGroup;
 			children = (
+				A68EAF6326B8E13A00B4A6A2 /* Enum */,
+				A68EAF6226B8E13400B4A6A2 /* Protocol */,
+				A68EAF6826B8E20D00B4A6A2 /* JsonDecoder.swift */,
+			);
+			path = Decoder;
+			sourceTree = "<group>";
+		};
+		A68EAF5C26B8DE6900B4A6A2 /* Protcol */ = {
+			isa = PBXGroup;
+			children = (
+				A68EAF6026B8DEAB00B4A6A2 /* DataLoader.swift */,
+			);
+			path = Protcol;
+			sourceTree = "<group>";
+		};
+		A68EAF5D26B8DE7000B4A6A2 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				A68EAF5E26B8DE8600B4A6A2 /* RemoeteErrors.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		A68EAF6226B8E13400B4A6A2 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A68EAF6526B8E15700B4A6A2 /* Decoder.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		A68EAF6326B8E13A00B4A6A2 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				A68EAF6A26B8E2CA00B4A6A2 /* DecodingErrorr.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		A68EAF6726B8E16200B4A6A2 /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				A68EAF6C26B8E47100B4A6A2 /* DecoderTests.swift */,
 			);
 			path = Decoder;
 			sourceTree = "<group>";
@@ -255,7 +313,12 @@
 			files = (
 				A68B5C3626B7B06B00154F80 /* ViewController.swift in Sources */,
 				A68B5C5A26B7CC2C00154F80 /* DataFetcher.swift in Sources */,
+				A68EAF6126B8DEAB00B4A6A2 /* DataLoader.swift in Sources */,
+				A68EAF5F26B8DE8600B4A6A2 /* RemoeteErrors.swift in Sources */,
+				A68EAF6926B8E20D00B4A6A2 /* JsonDecoder.swift in Sources */,
+				A68EAF6626B8E15700B4A6A2 /* Decoder.swift in Sources */,
 				A68B5C3226B7B06B00154F80 /* AppDelegate.swift in Sources */,
+				A68EAF6B26B8E2CA00B4A6A2 /* DecodingErrorr.swift in Sources */,
 				A68B5C3426B7B06B00154F80 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A68B5C4C26B7B36A00154F80 /* UIVIewController.swift in Sources */,
+				A68EAF6D26B8E47100B4A6A2 /* DecoderTests.swift in Sources */,
 				A68B5C5826B7BD6B00154F80 /* DataFetcherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
