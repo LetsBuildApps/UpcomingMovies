@@ -6,49 +6,79 @@
 //
 
 import Foundation
-struct UpcomingMoviesEndPoints {
-    var path: String
-    var section: Section
+
+protocol EndPoint {
+    var path: Path {get}
+    var section: Section {get}
+    var apiKey: String {get}
+    var language: String? {get}
+    var page: Int? {get}
+    var region: String? {get}
+    var queryItems: [URLQueryItem] {get}
+    var url: URL {get}
+}
+enum Section: String {
+    case movies = "movie"
+    case tv = "tv"
+}
+struct QueryItems {
     var apiKey: String
     var language: String?
     var page: Int?
     var region: String?
-    var queryItems: [URLQueryItem]
+}
 
+enum Path: String {
+    case upcoming = "upcoming"
+}
+
+struct UpcomingMoviesEndPoints: EndPoint {
     var url: URL {
         var components = URLComponents()
         components.host = "api.themoviedb.org"
         components.scheme =  "https"
-        components.path = "/3/\(section.rawValue)/\(path)"
+        components.path = "/3/\(section.rawValue)/\(path.rawValue)"
         components.queryItems = queryItems
-        print(queryItems)
         guard let url = components.url else {
             preconditionFailure("invalid url component")
         }
         return url
     }
     
-    enum Section: String {
-        case movies = "movie"
-        case tv = "tv"
-    }
+    var path: Path
+    var section: Section
+    var apiKey: String
+    var language: String?
+    var page: Int?
+    var region: String?
+    var queryItems: [URLQueryItem] = []
+
     
-    internal init(path: String, section: UpcomingMoviesEndPoints.Section, apiKey: String, language: String? = nil, page: Int? = nil, region: String? = nil) {
+    internal init(path: Path, section: Section, apiKey: String, language: String? = nil, page: Int? = nil, region: String? = nil) {
         self.path = path
         self.section = section
         self.apiKey = apiKey
         self.language = language
         self.page = page
         self.region = region
-        let queryItems: [String: String?] = [
-            "api_key": apiKey,
-            "language": language,
-            "page": "\(page ?? 1)",
-            "region": region
-        ]
         
-        self.queryItems = queryItems.compactMapValues({$0}).map({URLQueryItem(name: $0.key, value: $0.value)})
-         
+        let queryItems: [URLQueryItem] = [
+            URLQueryItem(name: "api_key", value: apiKey),
+            URLQueryItem(name: "language", value: language),
+            URLQueryItem(name: "page", value: "\(page ?? 1)"),
+            URLQueryItem(name: "region", value: region)
+        ]
+        self.queryItems = makeURLQueryItems(queryItems: queryItems)
+    }
+    
+    private func makeURLQueryItems(queryItems: [URLQueryItem]) -> [URLQueryItem] {
+        var newURLQueryItem: [URLQueryItem] = []
+        for item in queryItems {
+            if item.value != nil {
+                newURLQueryItem.append(item)
+            }
+        }
+        return newURLQueryItem
     }
 }
 
