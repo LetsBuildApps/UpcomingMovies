@@ -7,29 +7,11 @@
 
 import Foundation
 
-protocol EndPoint {
-    var path: Path {get}
-    var section: Section {get}
-    var apiKey: String {get}
-    var language: String? {get}
-    var page: Int? {get}
-    var region: String? {get}
-    var queryItems: [URLQueryItem] {get}
-    var url: URL {get}
-}
-enum Section: String {
-    case movies = "movie"
-    case tv = "tv"
-}
 struct QueryItems {
     var apiKey: String
     var language: String?
     var page: Int?
     var region: String?
-}
-
-enum Path: String {
-    case upcoming = "upcoming"
 }
 
 struct UpcomingMoviesEndPoints: EndPoint {
