@@ -14,6 +14,7 @@
 		A688C5BE26BB6E4500AFE16F /* Enpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688C5BD26BB6E4500AFE16F /* Enpoints.swift */; };
 		A688C5C126BB6E6500AFE16F /* EndpointEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688C5C026BB6E6500AFE16F /* EndpointEnums.swift */; };
 		A688C5C526BB6EF100AFE16F /* Intractor_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688C5C426BB6EF100AFE16F /* Intractor_tests.swift */; };
+		A688C5C826BB887B00AFE16F /* Intractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688C5C726BB887B00AFE16F /* Intractor.swift */; };
 		A68B5C3226B7B06B00154F80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C3126B7B06B00154F80 /* AppDelegate.swift */; };
 		A68B5C3426B7B06B00154F80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C3326B7B06B00154F80 /* SceneDelegate.swift */; };
 		A68B5C3626B7B06B00154F80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68B5C3526B7B06B00154F80 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		A68EAF6926B8E20D00B4A6A2 /* JsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68EAF6826B8E20D00B4A6A2 /* JsonDecoder.swift */; };
 		A68EAF6B26B8E2CA00B4A6A2 /* DecodingErrorr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68EAF6A26B8E2CA00B4A6A2 /* DecodingErrorr.swift */; };
 		A68EAF6D26B8E47100B4A6A2 /* DecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68EAF6C26B8E47100B4A6A2 /* DecoderTests.swift */; };
+		A6BE30B526BCD265001077A7 /* Intractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE30B426BCD265001077A7 /* Intractable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		A688C5BD26BB6E4500AFE16F /* Enpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enpoints.swift; sourceTree = "<group>"; };
 		A688C5C026BB6E6500AFE16F /* EndpointEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointEnums.swift; sourceTree = "<group>"; };
 		A688C5C426BB6EF100AFE16F /* Intractor_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intractor_tests.swift; sourceTree = "<group>"; };
+		A688C5C726BB887B00AFE16F /* Intractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intractor.swift; sourceTree = "<group>"; };
 		A68B5C2E26B7B06B00154F80 /* UpcomingMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpcomingMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68B5C3126B7B06B00154F80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A68B5C3326B7B06B00154F80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		A68EAF6826B8E20D00B4A6A2 /* JsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoder.swift; sourceTree = "<group>"; };
 		A68EAF6A26B8E2CA00B4A6A2 /* DecodingErrorr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingErrorr.swift; sourceTree = "<group>"; };
 		A68EAF6C26B8E47100B4A6A2 /* DecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderTests.swift; sourceTree = "<group>"; };
+		A6BE30B426BCD265001077A7 /* Intractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intractable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,15 @@
 			path = Intractor;
 			sourceTree = "<group>";
 		};
+		A688C5C626BB885200AFE16F /* Intractor */ = {
+			isa = PBXGroup;
+			children = (
+				A6BE30B326BCD258001077A7 /* Protocol */,
+				A688C5C726BB887B00AFE16F /* Intractor.swift */,
+			);
+			path = Intractor;
+			sourceTree = "<group>";
+		};
 		A68B5C2526B7B06B00154F80 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +188,7 @@
 		A68B5C3026B7B06B00154F80 /* UpcomingMovies */ = {
 			isa = PBXGroup;
 			children = (
+				A688C5C626BB885200AFE16F /* Intractor */,
 				A674114126BA722C00119A39 /* EndPoints */,
 				A674113E26BA6CF600119A39 /* ViewModel */,
 				A674113B26BA6B5300119A39 /* Model */,
@@ -296,6 +310,14 @@
 			path = Decoder;
 			sourceTree = "<group>";
 		};
+		A6BE30B326BCD258001077A7 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A6BE30B426BCD265001077A7 /* Intractable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -401,9 +423,11 @@
 				A68B5C5A26B7CC2C00154F80 /* DataFetcher.swift in Sources */,
 				A68EAF6126B8DEAB00B4A6A2 /* DataLoader.swift in Sources */,
 				A68EAF5F26B8DE8600B4A6A2 /* RemoeteErrors.swift in Sources */,
+				A6BE30B526BCD265001077A7 /* Intractable.swift in Sources */,
 				A674113D26BA6B6300119A39 /* UpcomingMoviesModels.swift in Sources */,
 				A68EAF6926B8E20D00B4A6A2 /* JsonDecoder.swift in Sources */,
 				A688C5C126BB6E6500AFE16F /* EndpointEnums.swift in Sources */,
+				A688C5C826BB887B00AFE16F /* Intractor.swift in Sources */,
 				A68EAF6626B8E15700B4A6A2 /* Decoder.swift in Sources */,
 				A68B5C3226B7B06B00154F80 /* AppDelegate.swift in Sources */,
 				A68EAF6B26B8E2CA00B4A6A2 /* DecodingErrorr.swift in Sources */,
