@@ -7,7 +7,7 @@
 import Foundation
 
 // MARK: - UpcomingMovies
-struct UpcomingMovies: Codable {
+struct Movies: Codable {
     let dates: Dates
     let page: Int
     let results: [Result]
