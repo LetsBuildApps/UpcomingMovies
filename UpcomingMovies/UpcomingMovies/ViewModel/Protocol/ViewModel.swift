@@ -10,7 +10,7 @@ import Foundation
  * view model protcol is what a view is expecting
  */
 protocol ViewModel {
-    var posterPath: String {get set}
+    var posterPath: URL {get set}
     var title: String {get set}
     var release_date: String {get set}
     var rating: Double {get set}
