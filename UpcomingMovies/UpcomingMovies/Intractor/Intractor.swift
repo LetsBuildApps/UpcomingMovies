@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class Intractor: Intractable {
     var decoder: DataDecoder
     var fetcher: DataLoader
@@ -14,10 +15,15 @@ class Intractor: Intractable {
         self.fetcher = fetcher
     }
     
+    func loadImagePosters(using url: URL, callBack: @escaping (Data?, Error?) -> ()) {
+        fetcher.load(from: url, resultHandler: { data, error in
+            callBack(data, error)
+        })
+    }
     
-    func loadData(using url: URL, callback: @escaping ([ViewModel]?) -> ()) {
-        loadDataFromRemoteFetcher(from: url, callback: { viewModel, error in
-            callback(viewModel)
+    func loadMovies(using url: URL, callback: @escaping ([ViewModel]?, Error?) -> ()) {
+        loadDataFromRemoteFetcher(from: url, callback: {viewModel, error in
+            callback(viewModel, error)
         })
     }
     
@@ -37,12 +43,16 @@ class Intractor: Intractable {
             let v: Movies = try decoder.decode(dataToBeDecoed: data)
             return makeViewModel(from: v)
         } catch let error {
-            print("failed here \(self) with error: \(error)")
+            print("failed To Decode Data here \(self) with error: \(error)")
         }
         return nil
     }
     
    private func makeViewModel(from model: Movies) -> [ViewModel] {
-      return  model.results.map({UpcomingMovies(posterPath: $0.posterPath, title: $0.title, release_date: $0.releaseDate, rating: $0.voteAverage)})
+      return  model.results.map({UpcomingMovies(
+                                    posterPath:PostersEndpoint(path: Poster.path.rawValue, host: Poster.host.rawValue, posterSize: .original, filePath: $0.posterPath).url,
+                                    title: $0.title,
+                                    release_date: $0.releaseDate,
+                                    rating: $0.voteAverage)})
     }
 }
