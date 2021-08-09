@@ -8,9 +8,9 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-    let posterImageView: UIImageView = UIImageView()
-    let ratingLabel: UILabel = UILabel()
-    let titleLabel: UILabel = UILabel()
+    var posterImageView: UIImageView = UIImageView()
+    var ratingLabel: UILabel = UILabel()
+    var titleLabel: UILabel = UILabel()
     override init(frame: CGRect) {
         super.init(frame: frame)
        addSubviews(subViewToBeAdded: [posterImageView, ratingLabel, titleLabel]) //
