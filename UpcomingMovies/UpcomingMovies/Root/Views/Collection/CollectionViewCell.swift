@@ -25,5 +25,26 @@ class CollectionViewCell: UICollectionViewCell {
             self.contentView.addSubview(view)
         }
     }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
     
+    private func setContraintsOnPosterImage() {
+        posterImageView.translatesAutoresizingMaskIntoConstraints = false
+        posterImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+        posterImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        posterImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        posterImageView.bottomAnchor.constraint(equalTo: self.titleLabel.topAnchor).isActive = true
+
+    }
+    private func setContraintsOnRatingLabel() {
+        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+    }
+    private func setContraintsOnTitleLabel() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.topAnchor.constraint(equalTo: self.posterImageView.bottomAnchor, constant: 5).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+    }
 }
