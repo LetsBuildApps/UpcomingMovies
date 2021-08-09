@@ -33,29 +33,4 @@ class CellConfigurable_tests: XCTestCase {
     
 }
 
-protocol CellViewModel {
-    var posterImg: UIImage? {get set}
-    var title: String {get set}
-    var release_date: String {get set}
-    var rating: Double {get set}
-}
 
-struct CellModel: CellViewModel {
-    var posterImg: UIImage?
-    var title: String
-    var release_date: String
-    var rating: Double
-    
-    
-}
-protocol CellConfigurable {
-    func configure(CellToBeConfigured cell: CollectionViewCell, with item: CellViewModel)
-}
-
-struct CellConfigurator: CellConfigurable {
-    func configure(CellToBeConfigured cell: CollectionViewCell, with item: CellViewModel) {
-        cell.posterImageView.image = item.posterImg
-        cell.titleLabel.text = item.title
-        cell.ratingLabel.text = "\(item.rating)"
-    }
-}
