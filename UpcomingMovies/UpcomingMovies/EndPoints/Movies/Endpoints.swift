@@ -34,7 +34,6 @@ struct UpcomingMoviesEndPoints: EndPoint {
     var page: Int?
     var region: String?
     var queryItems: [URLQueryItem] = []
-
     
     internal init(path: Path, section: Section, apiKey: String, language: String? = nil, page: Int? = nil, region: String? = nil) {
         self.path = path
@@ -43,7 +42,6 @@ struct UpcomingMoviesEndPoints: EndPoint {
         self.language = language
         self.page = page
         self.region = region
-        
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "api_key", value: apiKey),
             URLQueryItem(name: "language", value: language),
