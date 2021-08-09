@@ -6,7 +6,7 @@
 //
 
 import XCTest
-
+@testable import UpcomingMovies
 class CollectionViewCell_Tests: XCTestCase {
 
     var cell: CollectionViewCell!
@@ -44,26 +44,5 @@ class CollectionViewCell_Tests: XCTestCase {
     
     func test_posterImageView_Added_As_A_Child() {
         XCTAssertIdentical(cell.posterImageView.superview, cell.contentView, " posterImageView is not inside the CollectionViewCell's content View")
-    }
-}
-
-class CollectionViewCell: UICollectionViewCell {
-
-    let posterImageView: UIImageView = UIImageView()
-    let ratingLabel: UILabel = UILabel()
-    let titleLabel: UILabel = UILabel()
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-       addSubviews(subViewToBeAdded: [posterImageView, ratingLabel, titleLabel]) //
-    }
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        addSubviews(subViewToBeAdded: [posterImageView, ratingLabel, titleLabel])
-    }
-    
-    private func addSubviews(subViewToBeAdded subViews: [UIView]) {
-        for view in subViews {
-            self.contentView.addSubview(view)
-        }
     }
 }
