@@ -8,7 +8,7 @@
 import XCTest
 @testable import UpcomingMovies
 
-class EndPointTests: XCTestCase {
+class MovieEndPoints_Test: XCTestCase {
 
       var endPoint: EndPoint!
     override func setUp() {
