@@ -28,15 +28,15 @@ class Intractor_tests: XCTestCase {
 }
 
 
-struct  ViewModel {
+struct  Model {
     var name: String
 }
 protocol Intractable {
-    func loadData(using url: URL, callback: @escaping (ViewModel?)->())
+    func loadData(using url: URL, callback: @escaping (Model?)->())
 }
 
 class Intractor: Intractable{
-    func loadData(using url: URL, callback: @escaping (ViewModel?) -> ()) {
+    func loadData(using url: URL, callback: @escaping (Model?) -> ()) {
         loadDataFromAPI(from: url, callback: {viewModel in
             callback(viewModel)
         })
@@ -46,17 +46,17 @@ class Intractor: Intractable{
     var decoder: mockDeocer = mockDeocer()
     var fetcher: RemoteDataFetcher = RemoteDataFetcher()
     
-    func loadDataFromAPI(from url: URL,  callback: @escaping (ViewModel?) -> ()) {
+    func loadDataFromAPI(from url: URL,  callback: @escaping (Model?) -> ()) {
         fetcher.load(from: url, resultHandler: { data, error in
             guard let data = data else {return}
             let result =  self.loadDataFromDecoder(dataToBeDecoder: data)
             callback(result)
         })
     }
-    func loadDataFromDecoder(dataToBeDecoder data: Data) -> ViewModel? {
+    func loadDataFromDecoder(dataToBeDecoder data: Data) -> Model? {
         do {
             let v: MockUser = try decoder.decode(dataToBeDecoed: data)
-            return ViewModel(name: v.name)
+            return Model(name: v.name)
         } catch let error {
             print(error)
         }
