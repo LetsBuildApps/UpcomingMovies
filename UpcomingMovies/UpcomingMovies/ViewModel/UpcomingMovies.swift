@@ -8,12 +8,12 @@
 import Foundation
 /// will be used by UpcomingMovies ViewHandler
 struct UpcomingMovies: ViewModel {
-    var posterPath: String
+    var posterPath: URL
     var title: String
     var release_date: String
     var rating: Double
 
-    internal init(posterPath: String, title: String, release_date: String, rating: Double) {
+    internal init(posterPath: URL, title: String, release_date: String, rating: Double) {
         self.posterPath = posterPath
         self.title = title
         self.release_date = release_date
