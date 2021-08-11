@@ -10,49 +10,67 @@ import Foundation
 class Intractor: Intractable {
     var decoder: DataDecoder
     var fetcher: DataLoader
-    init(decoder: DataDecoder, fetcher: DataLoader) {
+    private var url: URL
+    private var currentPage: Int = 1
+    private var totalPages: Int = 0
+    init(decoder: DataDecoder, fetcher: DataLoader, url: URL) {
         self.decoder = decoder
         self.fetcher = fetcher
+        self.url = url
     }
     
-    func loadImagePosters(using url: URL, callBack: @escaping (Data?, Error?) -> ()) {
-        fetcher.load(from: url, resultHandler: { data, error in
-            callBack(data, error)
+    func getMovies(callback: @escaping ([Section]?, Error?) -> ()) {
+        loadDataFromServer(using: url, callback: { [weak self]data, error in
+            guard let data = data else {
+                callback(nil,error)
+                return
+            }
+            guard let expectedModel = self?.decodeDataThenUpdateTotalPages(dataToBeDecoder: data) else {
+                callback(nil,error)
+                return
+            }
+           let result = self?.makeCellSection(from: expectedModel)
+            callback(result, nil)
         })
     }
     
-    func loadMovies(using url: URL, callback: @escaping ([ViewModel]?, Error?) -> ()) {
-        loadDataFromRemoteFetcher(from: url, callback: {viewModel, error in
-            callback(viewModel, error)
-        })
-    }
-    
-  private func loadDataFromRemoteFetcher(from url: URL,  callback: @escaping ([ViewModel]?, Error?) -> ()) {
+    private func loadDataFromServer(using url: URL,  callback: @escaping (Data?, Error?) -> ()){
         fetcher.load(from: url, resultHandler: { data, error in
             guard let data = data else {
                 callback(nil,error)
                 return
             }
-            let result =  self.decodeData(dataToBeDecoder: data)
-             callback(result, nil)
+             callback(data, nil)
         })
     }
-    
-  private func decodeData(dataToBeDecoder data: Data) -> [ViewModel]? {
+    private func decodeDataThenUpdateTotalPages(dataToBeDecoder data: Data) -> Movies? {
         do {
             let v: Movies = try decoder.decode(dataToBeDecoed: data)
-            return makeViewModel(from: v)
+            updateTotalPagesCount(v.totalPages)
+            return v
         } catch let error {
             print("failed To Decode Data here \(self) with error: \(error)")
         }
         return nil
     }
     
-   private func makeViewModel(from model: Movies) -> [ViewModel] {
-      return  model.results.map({UpcomingMovies(
-                                    posterPath:PostersEndpoint(path: Poster.path.rawValue, host: Poster.host.rawValue, posterSize: .original, filePath: $0.posterPath).url,
-                                    title: $0.title,
-                                    release_date: $0.releaseDate,
-                                    rating: $0.voteAverage)})
+    fileprivate func updateTotalPagesCount(_ totalPagesCount: Int) {
+        totalPages = totalPagesCount
     }
+    
+    
+    private func makeCellSection(from model: Movies) -> [Section] {
+        let rows = makeViewModel(from: model)
+        let section : [CellSection] = [CellSection(rows: rows)]
+        return section
+    }
+    
+    private func makeViewModel(from model: Movies) -> [ViewModel] {
+       return  model.results.map({UpcomingMovies(
+                                     posterPath:PostersEndpoint(path: Poster.path.rawValue, host: Poster.host.rawValue, posterSize: .original, filePath: $0.posterPath).url,
+                                     title: $0.title,
+                                     release_date: $0.releaseDate,
+                                     rating: $0.voteAverage)})
+     }
+    
 }
