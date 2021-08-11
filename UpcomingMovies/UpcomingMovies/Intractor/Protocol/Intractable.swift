@@ -8,6 +8,5 @@
 import Foundation
 
 protocol Intractable {
-    func loadMovies(using url: URL, callback: @escaping ([ViewModel]?, Error?)->())
-    func loadImagePosters(using url: URL, callBack: @escaping (Data?, Error?) -> ())
+    func getMovies(callback: @escaping ([Section]?, Error?)->())
 }
