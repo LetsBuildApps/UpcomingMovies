@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
+        let layout  = createCompositionalLayout()
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
@@ -26,11 +26,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vc = mainStoryboard.instantiateViewController(identifier: "collectionController", creator: {coder in
             let holder = URLPropertyHolder( contentType: .movies, currentPage: 1, language: "en", apiKey: "0d9396afae9f4fe7bae0ce653bbee985", path: .upcoming)
            let intractor = Intractor(decoder: JsonDecoder(), fetcher: MainQueueDispatcherDecorator(decoratee: RemoteFetcherService()), urlPropertyHolder: holder)
-            return CollectionController(coder: coder, cellConfigurator: CellConfigurator(), intractor: intractor)
+            return CollectionController(coder: coder, cellConfigurator: CellConfigurator(), intractor: intractor, layout:layout)
         })
         
          window?.rootViewController = vc
     }
+    func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 4, bottom: 8, trailing: 4)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .fractionalWidth(1.0))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0)
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+     }
+
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
