@@ -21,3 +21,10 @@ struct UpcomingMovies: ViewModel {
     }
     
 }
+protocol Section {
+    var rows: [ViewModel] {get set}
+}
+
+struct CellSection: Section {
+    var rows: [ViewModel]
+}
