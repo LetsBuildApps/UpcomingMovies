@@ -7,13 +7,6 @@
 
 import Foundation
 
-struct QueryItems {
-    var apiKey: String
-    var language: String?
-    var page: Int?
-    var region: String?
-}
-
 struct UpcomingMoviesEndPoints: EndPoint {
     var url: URL {
         var components = URLComponents()
