@@ -28,14 +28,14 @@ struct UpcomingMoviesEndPoints: EndPoint {
     }
     
     var path: Path
-    var section: Section
+    var section: ContentType
     var apiKey: String
     var language: String?
     var page: Int?
     var region: String?
     var queryItems: [URLQueryItem] = []
     
-    internal init(path: Path, section: Section, apiKey: String, language: String? = nil, page: Int? = nil, region: String? = nil) {
+    internal init(path: Path, section: ContentType, apiKey: String, language: String? = nil, page: Int? = nil, region: String? = nil) {
         self.path = path
         self.section = section
         self.apiKey = apiKey

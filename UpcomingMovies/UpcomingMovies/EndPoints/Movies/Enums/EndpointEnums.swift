@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum Section: String {
+enum ContentType: String {
     case movies = "movie"
     case tv = "tv"
 }
