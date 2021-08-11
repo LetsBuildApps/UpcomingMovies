@@ -5,15 +5,15 @@
 //  Created by CHARNPREET SINGH on 9/8/21.
 //
 
-import Foundation
 
+import SDWebImage
 protocol CellConfigurable {
-    func configure(CellToBeConfigured cell: CollectionViewCell, with item: CellViewModel)
+    func configure(CellToBeConfigured cell: CollectionViewCell, with item: ViewModel)
 }
 
 struct CellConfigurator: CellConfigurable {
-    func configure(CellToBeConfigured cell: CollectionViewCell, with item: CellViewModel) {
-        cell.posterImageView.image = item.posterImg
+    func configure(CellToBeConfigured cell: CollectionViewCell, with item: ViewModel) {
+        cell.posterImageView.sd_setImage(with: item.posterPath, placeholderImage: UIImage(named: "placeholder.png"))
         cell.titleLabel.text = item.title
         cell.ratingLabel.text = "\(item.rating)"
     }
