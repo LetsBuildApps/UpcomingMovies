@@ -15,11 +15,12 @@ struct JsonDecoder: DataDecoder {
         do {
             return try JSONDecoder().decode(T.self, from: data)
         }catch let DecodingError.keyNotFound(key, _) {
-            print(key)
-            throw DecodingErrors.keyIsMissing
+            print(key.stringValue)
+            throw DecodingErrors.keyIsMissing(key: key.stringValue)
         } catch  DecodingError.typeMismatch(_, _) {
             throw DecodingErrors.typeMisMatch
         }catch DecodingError.valueNotFound(_, _) {
+            
             throw DecodingErrors.valueNotFound
         } catch DecodingError.dataCorrupted(_) {
             throw DecodingErrors.invalidData
