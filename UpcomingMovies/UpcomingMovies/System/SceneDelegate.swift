@@ -23,33 +23,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
         let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = mainStoryboard.instantiateViewController(identifier: "collectionController", creator: {coder in
-            let holder = URLPropertyHolder( contentType: .movies, currentPage: 1, language: "en", apiKey: "0d9396afae9f4fe7bae0ce653bbee985", path: .upcoming)
-           let intractor = Intractor(decoder: JsonDecoder(), fetcher: MainQueueDispatcherDecorator(decoratee: RemoteFetcherService()), urlPropertyHolder: holder)
-            return CollectionController(coder: coder, cellConfigurator: CellConfigurator(), intractor: intractor, layout:layout)
-        })
-        
-         window?.rootViewController = vc
+        //        let vc = mainStoryboard.instantiateViewController(identifier: "collectionController", creator: {coder in
+        //            let holder = URLPropertyHolder( contentType: .movies, currentPage: 1, language: "en", apiKey: "0d9396afae9f4fe7bae0ce653bbee985", path: .upcoming)
+        //           let intractor = Intractor(decoder: JsonDecoder(), fetcher: MainQueueDispatcherDecorator(decoratee: RemoteFetcherService()), urlPropertyHolder: holder)
+        //            return CollectionController<UpcomingMovies>(coder: coder, cellConfigurator: CellConfigurator(), intractor: intractor, layout:layout)
+        //        })
+        let holder = URLPropertyHolder( contentType: .movies, currentPage: 1, language: "en", apiKey: "0d9396afae9f4fe7bae0ce653bbee985", path: .upcoming)
+        let intractor = Intractor(decoder: JsonDecoder(), fetcher: MainQueueDispatcherDecorator(decoratee: RemoteFetcherService()), urlPropertyHolder: holder)
+        let vc = CollectionController<UpcomingMovies>(cellConfigurator: CellConfigurator(), intractor: intractor, layout:layout)
+        window?.rootViewController = vc
     }
     func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
-        
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                              heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 4, bottom: 8, trailing: 4)
-
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalWidth(1.0))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4)
-
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize) 
+        item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.5))
+        // let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let group =  NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0)
-
+        // section.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0)
+        // section.orthogonalScrollingBehavior = .groupPaging
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
-     }
-
+    }
+    
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
