@@ -8,5 +8,6 @@
 import Foundation
 
 protocol Intractable {
-    func getMovies(callback: @escaping ([Section]?, Error?)->())
+    func getMovies<T:ViewModel>(callback: @escaping ([CellSection<T>]?, Error?)->())
+//    func getMovies(callback: @escaping ([Section]?, Error?)->())
 }
