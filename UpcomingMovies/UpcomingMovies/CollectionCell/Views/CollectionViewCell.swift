@@ -13,12 +13,7 @@ class CollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
        addSubviews(subViewToBeAdded: [posterImageView]) //
         posterImageView.layer.cornerRadius = 10
-        posterImageView.layer.borderWidth = 3
-        posterImageView.layer.borderColor = UIColor.black.cgColor
-        posterImageView.layer.shadowColor = UIColor.white.cgColor
-        posterImageView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        posterImageView.layer.shadowRadius = 12.0
-        posterImageView.layer.shadowOpacity = 0.7
+        //posterImageView.layer.borderWidth = 2
         posterImageView.layer.masksToBounds = true
         posterImageView.contentMode = .scaleAspectFit
         
