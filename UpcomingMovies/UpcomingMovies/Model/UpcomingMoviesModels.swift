@@ -3,10 +3,9 @@
 //  UpcomingMovies
 //
 //  Created by CHARNPREET SINGH on 4/8/21.
-
 import Foundation
 
-// MARK: - UpcomingMovies
+// MARK: - Movies
 struct Movies: Codable {
     let dates: Dates
     let page: Int
@@ -31,10 +30,10 @@ struct Result: Codable {
     let backdropPath: String?
     let genreIDS: [Int]
     let id: Int
-    let originalLanguage: OriginalLanguage
-    let originalTitle, overview: String
+    let originalLanguage, originalTitle, overview: String
     let popularity: Double
-    let posterPath, releaseDate, title: String
+    let posterPath: String?
+    let  releaseDate, title: String
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
@@ -55,6 +54,3 @@ struct Result: Codable {
     }
 }
 
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-}
