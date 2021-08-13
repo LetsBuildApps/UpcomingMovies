@@ -11,7 +11,7 @@ import Foundation
 enum DecodingErrors: Error, Equatable {
     case invalidData
     case faildToDecode
-    case keyIsMissing
+    case keyIsMissing(key: String)
     case typeMisMatch
     case valueNotFound
     case dataSetEmpty
@@ -24,16 +24,17 @@ extension DecodingErrors: LocalizedError {
             return "Data is crupted"
         case .faildToDecode:
             return "Unable to Decode Data"
-        case .keyIsMissing:
-            return "key is missing"
         case .typeMisMatch:
             return "type did not match"
         case .valueNotFound:
             return "expected value is null"
         case .dataSetEmpty:
             return "passed in data set is empty"
+        case .keyIsMissing(key: let key):
+            return "key is missing :- \(key)"
         }
     }
 }
 
 
+    
