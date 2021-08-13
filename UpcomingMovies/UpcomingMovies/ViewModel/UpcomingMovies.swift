@@ -12,7 +12,7 @@ struct UpcomingMovies: ViewModel {
     var title: String
     var release_date: String
     var rating: Double
-
+    var id : UUID = UUID()
     internal init(posterPath: URL, title: String, release_date: String, rating: Double) {
         self.posterPath = posterPath
         self.title = title
@@ -21,10 +21,15 @@ struct UpcomingMovies: ViewModel {
     }
     
 }
-protocol Section {
-    var rows: [ViewModel] {get set}
+struct CellSection<T: ViewModel>: Hashable {
+    var id : UUID = UUID()
+    static func == (lhs: CellSection<T>, rhs: CellSection<T>) -> Bool {
+        return lhs.rows == rhs.rows && lhs.id == rhs.id
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(rows)
+        hasher.combine(id)
+    }
+    var rows: [T]
 }
 
-struct CellSection: Section {
-    var rows: [ViewModel]
-}
